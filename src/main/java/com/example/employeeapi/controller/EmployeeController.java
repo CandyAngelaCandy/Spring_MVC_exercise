@@ -24,15 +24,14 @@ public class EmployeeController {
     @RequestMapping("/employees")
     String getEmployees(Model model) {
 
-        EmployeeDataProvider employeeDataProvider = new EmployeeDataProvider();
-
-        List<Employee> allEmployees = employeeDataProvider.getEmployees();
+        List<Employee> allEmployees = employeeRepository.getAllEmployees();
 
         model.addAttribute("allEmployees",allEmployees);
 
         //model.addAttribute("message", "hello world");
 
-        return "employees";
+        return "allEmployees";
+
     }
 
 
